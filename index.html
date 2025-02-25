@@ -12,57 +12,60 @@
   <!-- Particle Effect (background animation) -->
   <div id="particles-js"></div>
 
+  <!-- Main Content -->
   <div id="root">
     <!-- Header Section -->
-    <header>
+    <header class="header">
       <h1>Deobfuscator</h1>
-      <p>Deobfuscate your code instantly for free!</p>
+      <p>Instantly deobfuscate your code for free!</p>
     </header>
     
     <!-- Code Input Section -->
-    <section>
-      <h2>Paste Your Obfuscated Code Here</h2>
+    <section class="code-section">
+      <h2>Paste Your Obfuscated Code Below</h2>
       <form id="code-form">
-        <textarea id="code-input" placeholder="Paste your obfuscated code here" rows="10"></textarea>
-        <button type="submit">Deobfuscate</button>
+        <textarea id="code-input" placeholder="Paste your obfuscated code here..." rows="10"></textarea>
+        <button type="submit" class="btn">Deobfuscate Now</button>
       </form>
     </section>
     
-    <!-- Result Display Section -->
-    <section>
+    <!-- Result Section -->
+    <section class="result-section">
       <h2>Deobfuscated Code</h2>
       <pre id="result-display">/* Deobfuscated code will appear here */</pre>
     </section>
     
     <!-- Footer Section -->
-    <footer>
+    <footer class="footer">
       <p>Made with ❤️ by SAMRAT | &copy; 2025 Deobfuscator</p>
     </footer>
   </div>
 
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
   <script src="/scripts/main.js"></script>
+
   <script>
-    // Particles.js configuration
+    // Particles.js Configuration for CGI-style Background
     particlesJS("particles-js", {
       particles: {
         number: {
-          value: 100,
-          density: { enable: true, value_area: 800 }
+          value: 80,
+          density: { enable: true, value_area: 600 }
         },
+        color: { value: "#ffffff" },
         shape: {
-          type: "circle"
-        },
-        color: {
-          value: "#ffffff"
+          type: "circle",
+          stroke: { width: 0, color: "#000000" },
+          polygon: { nb_sides: 5 }
         },
         opacity: {
-          value: 0.5,
+          value: 0.7,
           random: true,
           anim: { enable: true, speed: 1, opacity_min: 0.1 }
         },
         size: {
-          value: 3,
+          value: 4,
           random: true,
           anim: { enable: true, speed: 2, size_min: 0.1 }
         },
@@ -75,9 +78,16 @@
         },
         move: {
           enable: true,
-          speed: 6,
+          speed: 3,
           direction: "random",
           out_mode: "out"
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" }
         }
       }
     });
